@@ -3,15 +3,15 @@ networks:
   infra_chatbot:
     external: true
 services:
-  plugin_node:
-    image: asdfasdf
+  plugin_simple_toss_:
+    image: plugin_simple_toss
     build: ./
-    container_name: asdfasdf
+    container_name: plugin_simple_toss_
     restart: always
+    env_file:
+      - .env
     networks:
       - infra_chatbot
-    ports:
-      - '10000:3000'
     deploy:
       resources:
         limits:
