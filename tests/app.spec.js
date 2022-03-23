@@ -23,6 +23,30 @@ describe("Test the root path", () => {
       .type('application/json')
       .send({})
     expect(response.statusCode).toBe(200);
+    const data = response.body
+    expect(data).toEqual({
+      "version": "2.0",
+      "template": {
+        "outputs": [
+          {
+            "simpleText": {
+              "text": "원하는 메뉴를 선택하세요"
+            }
+          }
+        ],
+        "quickReplies": [
+          {
+            "messageText": "홈 으로",
+            "action": "message",
+            "label": "홈"
+          },
+          {
+            "messageText": "뒤로 가기",
+            "action": "message",
+            "label": "↩"
+          }
+        ]
+      }
+    })
   });
-  
 });
